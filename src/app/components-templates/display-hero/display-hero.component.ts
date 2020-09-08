@@ -7,14 +7,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class DisplayHeroComponent implements OnInit {
 
+  @Input() hero;
+
+  @Output() deleteHeroEvent = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
-
-  @Input() hero;
-
-  @Output() deleteHeroEvent = new EventEmitter();
 
   deleteHero(hero) {
     this.deleteHeroEvent.emit(hero);
