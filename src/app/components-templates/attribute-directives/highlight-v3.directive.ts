@@ -17,7 +17,7 @@ export class HighlightV3Directive {
     this.highlight(null);
   }
 
-  @HostBinding('class') testClass: String = 'some-test-class';
+  @HostBinding() class: String = 'some-test-class';
 
   private highlight(color: string) {
     this.el.nativeElement.style.backgroundColor = color;

@@ -29,14 +29,14 @@ export class DirectivesComponent implements OnInit {
   differentHeroNames = [{"id":1,"name":"Ram","power":2612},
   {"id":2,"name":"Laxman","power":7036},
   {"id":3,"name":"Barath","power":3331},
-  {"id":4,"name":"Shatrughna","power":5158},
-  {"id":5,"name":"Hanuman","power":8948}];
+  {"id":4,"name":"Charan","power":5158},
+  {"id":5,"name":"Arun","power":8948}];
 
   differentHeroIds = [{"id":11,"name":"Ram","power":2612},
   {"id":12,"name":"Laxman","power":7036},
   {"id":13,"name":"Barath","power":3331},
-  {"id":14,"name":"Shatrughna","power":5158},
-  {"id":15,"name":"Hanuman","power":8948}];
+  {"id":14,"name":"Charan","power":5158},
+  {"id":15,"name":"Arun","power":8948}];
 
   trackByHeroes(index: number, hero): number { 
     return hero.id; 
