@@ -16,9 +16,11 @@ export class TodoTrackerService {
   track(todo) {
     let action = `${todo.title} is ${todo.done ? `` : `not`} completed`;
     this.todoSubject.next(action);
-    this.http.get('assets/todos.json').subscribe(data => {
+    
+    /* Getting data from local json file */
+    /* this.http.get('assets/todos.json').subscribe(data => {
       console.log(data);
-    });
+    }); */
   }
 
 }

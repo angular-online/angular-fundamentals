@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
-import { CountdownTimerComponent } from '../countdown-timer/countdown-timer.component'
+import { CountdownTimerComponent } from '../countdown-timer/countdown-timer.component';
 
 @Component({
   selector: 'app-countdown-parent-with-view-child',

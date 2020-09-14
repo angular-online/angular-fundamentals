@@ -14,6 +14,6 @@ export class EditUserComponent implements OnInit {
 
   @Input() user;
 
-  version: number = 8;
+  version: number = 10;
 
 }
