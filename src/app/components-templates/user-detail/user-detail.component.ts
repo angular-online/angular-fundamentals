@@ -8,11 +8,6 @@ import { EditUserComponent } from '../edit-user/edit-user.component';
 })
 export class UserDetailComponent implements OnInit, AfterContentInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   user = {
     name: 'John',
     age: 25
@@ -20,6 +15,12 @@ export class UserDetailComponent implements OnInit, AfterContentInit {
 
   @ContentChild(EditUserComponent) 
   editUserContent: EditUserComponent;
+
+  constructor() { }
+
+  ngOnInit() {
+    console.log(this.editUserContent.version);
+  }
 
   ngAfterContentInit() {
     console.log(this.editUserContent.version);
