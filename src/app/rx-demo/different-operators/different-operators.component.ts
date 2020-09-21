@@ -3,12 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { of, interval, fromEvent, from } from 'rxjs';
 import {  map, 
           filter, 
-          combineLatest, 
-          concat, 
-          merge, 
           startWith,
           withLatestFrom, 
-          zip, 
           take, 
           debounceTime,
           distinct,
@@ -20,6 +16,7 @@ import {  map,
           retry
         } from 'rxjs/operators';
 
+import { merge, concat, combineLatest, zip } from "rxjs";
 import { ajax } from 'rxjs/ajax';
 
 @Component({
@@ -68,30 +65,26 @@ export class DifferentOperatorsComponent implements OnInit {
     let observable1$ = interval(1000);
     let observable2$ = interval(1500);
 
-    let combined$ = observable1$.pipe(
-      combineLatest(
-        observable2$,
-        (val1, val2) => {
-          return `${val1} - ${val2}`
-        }
-      )
+    let combined$ = combineLatest(
+      observable1$,
+      observable2$
+    ).pipe(
+      map(([val1, val2]) => {
+        return `${val1} - ${val2}`
+      })
     );
 
     combined$.subscribe(val => this.combineLatestLogs.push(val));
 
     /******* merge operator *********/
-    let merged$ = observable1$.pipe(
-      merge(observable2$)
-    );
+    let merged$ = merge(observable1$, observable2$);
 
     merged$.subscribe(val => this.mergeLogs.push(val));
 
     /******* concat operator *********/
     let nums1$ = of(1,2,3);
     let nums2$ = of(4,5,6);
-    let concatinated$ = nums1$.pipe(
-      concat(nums2$)
-    );
+    let concatinated$ = concat(nums1$, nums2$);
 
     concatinated$.subscribe(val => this.concatLogs.push(val));
 
@@ -122,9 +115,7 @@ export class DifferentOperatorsComponent implements OnInit {
     const numbers1$ = interval(1000);
     const numbers2$ = numbers1$.pipe(take(2));
 
-    const numb$ = numbers1$.pipe(
-      zip(numbers2$)
-    );
+    const numb$ = zip(numbers1$, numbers2$);
 
     //output: [0,0]...[1,1]
     numb$.subscribe(val => this.zipLogs.push(val));
