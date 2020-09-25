@@ -18,7 +18,7 @@ export class FormGroupComponent implements OnInit {
 
   profileFormGroup = new FormGroup({
     firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('')
+    lastName: new FormControl('', Validators.required)
   });
 
   onSubmit() {
