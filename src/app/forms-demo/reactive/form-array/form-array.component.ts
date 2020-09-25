@@ -65,7 +65,7 @@ export class FormArrayComponent implements OnInit {
         state: 'TS',
         zip: '' // In setValue method, we can pass empty values. But, we should not miss any form control.
       },
-      aliases:['John', 'Doe', 'Dude']
+      aliases:['John', 'Doe', 'Martin']
     });
   }
 
